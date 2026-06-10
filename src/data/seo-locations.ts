@@ -1,0 +1,217 @@
+import type { SeoContentPage } from "@/types/seo";
+import { STANDARD_INTERNAL_LINKS } from "./seo-helpers";
+
+const locationData: SeoContentPage[] = [
+  {
+    slug: "algorithmic-trading-india",
+    title: "Algorithmic Trading in India",
+    description: "Institutional algorithmic trading solutions for qualified investors in India. AI-powered systems with capital preservation focus.",
+    category: "India",
+    keywords: ["algorithmic trading India", "AI trading India", "quantitative trading India"],
+    sections: [
+      { heading: "Algorithmic Trading Landscape in India", paragraphs: ["India's financial markets have experienced significant growth in systematic and quantitative trading adoption. Institutional investors and high-net-worth individuals increasingly seek technology-driven approaches that prioritize risk management alongside return generation.", "PrysmAlgo serves qualified Indian investors with institutional-grade algorithmic infrastructure, operating from Mumbai with global market access."] },
+      { heading: "Regulatory and Operational Framework", paragraphs: ["Indian investors connect through regulated brokerage partners with full KYC/AML compliance. Capital remains in the investor's own brokerage account at all times.", "Our technology provides execution and risk management while investors maintain full custody and control of their funds."] },
+      { heading: "Why Indian Investors Choose PrysmAlgo", paragraphs: ["Disciplined risk management with maximum drawdown controls, transparent monthly reporting, and a performance-based fee model aligned with investor interests.", "Minimum investment threshold of $250,000 USD ensures institutional-grade service for every client relationship."] },
+    ],
+    faqs: [
+      { question: "Is algorithmic trading legal in India?", answer: "Yes, when conducted through regulated brokerage accounts with compliant technology providers. PrysmAlgo operates as a technology provider connecting to regulated brokers." },
+      { question: "What is the minimum investment for Indian investors?", answer: "The minimum allocation is $250,000 USD for qualified investors meeting suitability requirements." },
+    ],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-mumbai", label: "Algorithmic Trading Mumbai" }],
+  },
+  {
+    slug: "algorithmic-trading-mumbai",
+    title: "Algorithmic Trading in Mumbai",
+    description: "PrysmAlgo headquarters in Mumbai Central provides institutional algorithmic trading technology for Maharashtra and pan-India investors.",
+    category: "Mumbai",
+    keywords: ["algorithmic trading Mumbai", "AI trading Mumbai", "quantitative trading Mumbai"],
+    sections: [
+      { heading: "Mumbai: India's Financial Capital", paragraphs: ["Mumbai serves as India's primary financial hub, home to major exchanges, institutional allocators, and high-net-worth investor communities.", "PrysmAlgo is headquartered at Shop No. 7, Abu Bakkar Palace, Dimtimkar Road, Nagpada, Mumbai Central — serving investors across Maharashtra and India."] },
+      { heading: "Local Investor Services", paragraphs: ["Mumbai-based investors benefit from direct access to our team for consultations, onboarding, and investor relations support.", "We offer in-person strategy consultations alongside our global digital infrastructure."] },
+    ],
+    faqs: [{ question: "Can I visit the PrysmAlgo Mumbai office?", answer: "Yes. Schedule a consultation through our contact page or Calendly to arrange a meeting at our Mumbai Central office." }],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-india", label: "Algorithmic Trading India" }],
+  },
+  {
+    slug: "algorithmic-trading-dubai",
+    title: "Algorithmic Trading in Dubai",
+    description: "Institutional algorithmic trading technology for qualified investors in Dubai and the UAE market.",
+    category: "UAE",
+    keywords: ["algorithmic trading Dubai", "algorithmic trading UAE", "AI trading Dubai"],
+    sections: [
+      { heading: "Dubai's Growing Quantitative Finance Sector", paragraphs: ["Dubai and the UAE have emerged as significant centers for wealth management and alternative investments in the Middle East.", "Institutional and HNW investors in the region increasingly adopt systematic trading approaches for portfolio diversification."] },
+      { heading: "PrysmAlgo for UAE Investors", paragraphs: ["Our platform serves qualified UAE investors with the same institutional risk framework, transparent reporting, and AI-powered execution used globally.", "Multi-market access across forex, indices, and commodities provides diversification beyond regional markets."] },
+    ],
+    faqs: [{ question: "Do you serve investors in Dubai?", answer: "Yes. We serve qualified investors in the UAE subject to KYC/AML verification and suitability assessment." }],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-uae", label: "Algorithmic Trading UAE" }],
+  },
+  {
+    slug: "algorithmic-trading-uae",
+    title: "Algorithmic Trading in the UAE",
+    description: "AI-powered algorithmic trading solutions for institutional and high-net-worth investors across the United Arab Emirates.",
+    category: "UAE",
+    keywords: ["algorithmic trading UAE", "AI trading UAE", "automated trading UAE"],
+    sections: [
+      { heading: "UAE Investment Landscape", paragraphs: ["The UAE's position as a global financial hub attracts institutional capital seeking sophisticated investment technology.", "Algorithmic trading provides systematic, risk-managed market participation aligned with institutional mandates."] },
+    ],
+    faqs: [{ question: "What markets can UAE investors access?", answer: "Forex, global indices, and select commodities through regulated brokerage infrastructure with 24/5 monitoring." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "ai-trading-india",
+    title: "AI Trading in India",
+    description: "Artificial intelligence-powered trading technology for qualified Indian investors seeking institutional-grade systematic execution.",
+    category: "India",
+    keywords: ["AI trading India", "artificial intelligence trading India"],
+    sections: [
+      { heading: "AI Adoption in Indian Finance", paragraphs: ["Indian financial institutions and investors are increasingly adopting AI-driven trading systems for improved execution and risk management.", "PrysmAlgo's Blue Engine combines neural network ensembles with institutional risk controls designed for serious capital."] },
+    ],
+    faqs: [{ question: "How does AI trading differ from traditional algo trading?", answer: "AI trading uses machine learning for signal generation while maintaining the same institutional risk frameworks as traditional systematic strategies." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "ai-trading-uae",
+    title: "AI Trading in the UAE",
+    description: "Institutional AI trading technology for UAE investors with disciplined risk management and transparent reporting.",
+    category: "UAE",
+    keywords: ["AI trading UAE", "AI trading Dubai", "AI investment platform UAE"],
+    sections: [
+      { heading: "AI Trading for UAE Allocators", paragraphs: ["UAE-based family offices and institutional allocators leverage AI trading technology for systematic portfolio growth with controlled risk exposure.", "PrysmAlgo provides the infrastructure, risk management, and reporting that institutional relationships demand."] },
+    ],
+    faqs: [{ question: "Is AI trading suitable for UAE family offices?", answer: "Yes, for qualified family offices meeting minimum allocation requirements and passing suitability assessment." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "quantitative-trading-india",
+    title: "Quantitative Trading in India",
+    description: "Quantitative trading technology and systematic investment solutions for Indian institutional investors.",
+    category: "India",
+    keywords: ["quantitative trading India", "quant trading India"],
+    sections: [
+      { heading: "Quantitative Finance in India", paragraphs: ["Quantitative trading applies mathematical models and statistical analysis to identify and execute trading opportunities systematically.", "India's growing quant community benefits from access to global algorithmic infrastructure through technology providers like PrysmAlgo."] },
+    ],
+    faqs: [{ question: "What is quantitative trading?", answer: "Quantitative trading uses mathematical models, statistics, and algorithms to make trading decisions systematically rather than through discretionary judgment." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "quantitative-trading-dubai",
+    title: "Quantitative Trading in Dubai",
+    description: "Quantitative trading solutions for Dubai and UAE investors seeking systematic, risk-managed market participation.",
+    category: "UAE",
+    keywords: ["quantitative trading Dubai", "quant trading UAE"],
+    sections: [
+      { heading: "Quant Trading in the Gulf Region", paragraphs: ["Dubai's financial ecosystem supports sophisticated investment strategies including quantitative and algorithmic trading.", "PrysmAlgo enables UAE investors to access institutional quant infrastructure with full transparency and risk controls."] },
+    ],
+    faqs: [{ question: "How do I start quantitative trading in Dubai?", answer: "Submit an investor application, complete verification, and connect your regulated brokerage account for strategy activation." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "algorithmic-trading-usa",
+    title: "Algorithmic Trading in the USA",
+    description: "Institutional algorithmic trading technology for qualified investors in the United States seeking systematic, risk-managed market access.",
+    category: "USA",
+    keywords: ["algorithmic trading USA", "AI trading USA", "quantitative trading United States"],
+    sections: [
+      { heading: "US Systematic Investing Landscape", paragraphs: ["US allocators increasingly adopt rules-based trading systems for portfolio diversification, risk control, and transparent performance attribution.", "PrysmAlgo serves qualified US investors with institutional-grade algorithmic infrastructure, live performance verification, and documented risk frameworks."] },
+      { heading: "Regulatory and Operational Framework", paragraphs: ["US investors connect through regulated brokerage partners with full KYC/AML compliance. Capital remains in the investor's own brokerage account at all times.", "Our technology provides execution and risk management while investors maintain full custody and control of their funds."] },
+      { heading: "Why US Investors Choose PrysmAlgo", paragraphs: ["Disciplined risk management with maximum drawdown controls, transparent monthly reporting, and a performance-based fee model aligned with investor interests.", "Multi-strategy access across forex, commodities, and US equities with live dashboard verification at green.prysmalgo.com."] },
+    ],
+    faqs: [
+      { question: "Do you serve investors in the United States?", answer: "Yes. We serve qualified US investors subject to KYC/AML verification, suitability assessment, and applicable regulatory requirements." },
+      { question: "What is the minimum investment for US investors?", answer: "The minimum allocation is $250,000 USD for qualified investors meeting suitability requirements." },
+    ],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-new-york", label: "Algorithmic Trading New York" }],
+  },
+  {
+    slug: "algorithmic-trading-new-york",
+    title: "Algorithmic Trading in New York",
+    description: "Institutional algorithmic trading technology for qualified investors in New York and the US Northeast.",
+    category: "New York",
+    keywords: ["algorithmic trading New York", "AI trading NYC", "quantitative trading New York"],
+    sections: [
+      { heading: "New York: Global Financial Capital", paragraphs: ["New York is home to major institutional allocators, family offices, and hedge fund ecosystems seeking systematic trading technology.", "PrysmAlgo serves qualified New York investors with the same institutional risk framework, transparent reporting, and AI-powered execution used globally."] },
+      { heading: "Services for US Allocators", paragraphs: ["New York-based investors benefit from remote onboarding, strategy consultations, and dedicated investor relations support.", "Prysm Green provides live US equity systematic exposure with verified performance documentation."] },
+    ],
+    faqs: [{ question: "Can New York investors access PrysmAlgo strategies?", answer: "Yes. Qualified US investors can complete our investor assessment, review live performance, and schedule a strategy consultation." }],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-usa", label: "Algorithmic Trading USA" }],
+  },
+  {
+    slug: "algorithmic-trading-uk",
+    title: "Algorithmic Trading in the UK",
+    description: "Institutional algorithmic trading solutions for qualified investors in the United Kingdom.",
+    category: "UK",
+    keywords: ["algorithmic trading UK", "AI trading UK", "quantitative trading United Kingdom"],
+    sections: [
+      { heading: "UK Quantitative Finance Sector", paragraphs: ["The United Kingdom remains a global center for institutional asset management, family offices, and systematic investment strategies.", "UK allocators increasingly seek technology-driven approaches with documented risk controls and transparent performance reporting."] },
+      { heading: "PrysmAlgo for UK Investors", paragraphs: ["Our platform serves qualified UK investors with institutional-grade algorithmic infrastructure, live performance verification, and systematic risk management.", "Multi-market access across forex, commodities, and US equities provides diversification beyond domestic UK markets."] },
+    ],
+    faqs: [
+      { question: "Do you serve investors in the United Kingdom?", answer: "Yes. We serve qualified UK investors subject to KYC/AML verification and suitability assessment." },
+      { question: "What markets can UK investors access?", answer: "Forex, global indices, commodities, and US equities through regulated brokerage infrastructure with 24/5 monitoring." },
+    ],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-london", label: "Algorithmic Trading London" }],
+  },
+  {
+    slug: "algorithmic-trading-london",
+    title: "Algorithmic Trading in London",
+    description: "PrysmAlgo provides institutional algorithmic trading technology for qualified investors in London and across the UK.",
+    category: "London",
+    keywords: ["algorithmic trading London", "AI trading London", "quantitative trading London"],
+    sections: [
+      { heading: "London: Europe's Financial Hub", paragraphs: ["London hosts one of the world's largest concentrations of institutional capital, family offices, and alternative investment allocators.", "PrysmAlgo enables London-based investors to access systematic trading technology with full transparency and documented risk frameworks."] },
+      { heading: "Investor Services", paragraphs: ["London investors benefit from remote onboarding, quarterly reporting, and strategy consultations via our investor relations team.", "Our Mumbai headquarters coordinates global investor support with Calendly scheduling for UK time zones."] },
+    ],
+    faqs: [{ question: "Is PrysmAlgo available to London investors?", answer: "Yes. Qualified UK investors can apply through our investor assessment and complete remote onboarding with full KYC verification." }],
+    internalLinks: [...STANDARD_INTERNAL_LINKS, { href: "/locations/algorithmic-trading-uk", label: "Algorithmic Trading UK" }],
+  },
+  {
+    slug: "ai-trading-usa",
+    title: "AI Trading in the USA",
+    description: "Artificial intelligence-powered trading technology for qualified US investors seeking institutional-grade systematic execution.",
+    category: "USA",
+    keywords: ["AI trading USA", "artificial intelligence trading USA", "AI investment platform United States"],
+    sections: [
+      { heading: "AI Adoption in US Finance", paragraphs: ["US institutional investors and family offices are increasingly adopting AI-driven trading systems for improved signal generation and risk management.", "PrysmAlgo's Blue Engine combines neural network ensembles with institutional risk controls designed for serious capital."] },
+    ],
+    faqs: [{ question: "How does AI trading work for US investors?", answer: "AI trading uses machine learning for signal generation while maintaining institutional risk frameworks, position sizing, and drawdown controls." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "ai-trading-uk",
+    title: "AI Trading in the UK",
+    description: "Institutional AI trading technology for UK investors with disciplined risk management and transparent reporting.",
+    category: "UK",
+    keywords: ["AI trading UK", "AI trading London", "AI investment platform UK"],
+    sections: [
+      { heading: "AI Trading for UK Allocators", paragraphs: ["UK-based family offices and institutional allocators leverage AI trading technology for systematic portfolio growth with controlled risk exposure.", "PrysmAlgo provides the infrastructure, risk management, and reporting that institutional relationships demand."] },
+    ],
+    faqs: [{ question: "Is AI trading suitable for UK family offices?", answer: "Yes, for qualified family offices meeting minimum allocation requirements and passing suitability assessment." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "quantitative-trading-london",
+    title: "Quantitative Trading in London",
+    description: "Quantitative trading solutions for London and UK investors seeking systematic, risk-managed market participation.",
+    category: "UK",
+    keywords: ["quantitative trading London", "quant trading UK"],
+    sections: [
+      { heading: "Quant Trading in London", paragraphs: ["London's financial ecosystem supports sophisticated investment strategies including quantitative and algorithmic trading.", "PrysmAlgo enables UK investors to access institutional quant infrastructure with full transparency and risk controls."] },
+    ],
+    faqs: [{ question: "How do I start quantitative trading in the UK?", answer: "Submit an investor application, complete verification, and connect your regulated brokerage account for strategy activation." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+  {
+    slug: "quantitative-trading-new-york",
+    title: "Quantitative Trading in New York",
+    description: "Quantitative trading technology and systematic investment solutions for US institutional investors in New York.",
+    category: "USA",
+    keywords: ["quantitative trading New York", "quant trading USA"],
+    sections: [
+      { heading: "Quantitative Finance in New York", paragraphs: ["New York's allocator community increasingly seeks systematic alternatives to discretionary trading with auditable performance and risk controls.", "PrysmAlgo provides institutional quant infrastructure with live verification across forex, commodities, and US equities."] },
+    ],
+    faqs: [{ question: "What is quantitative trading?", answer: "Quantitative trading uses mathematical models, statistics, and algorithms to make trading decisions systematically rather than through discretionary judgment." }],
+    internalLinks: STANDARD_INTERNAL_LINKS,
+  },
+];
+
+export const locationPages: SeoContentPage[] = locationData;

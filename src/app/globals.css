@@ -1,0 +1,148 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 247 245 252;
+    --foreground: 26 16 40;
+    --primary: 255 255 255;
+    --secondary: 237 232 245;
+    --muted: 92 79 110;
+    --accent: 107 33 168;
+    --accent-pink: 192 38 211;
+    --accent-light: 124 58 237;
+    --accent-dark: 88 28 135;
+    --success: 22 163 74;
+    --border: 123 44 191;
+    --chart-grid: rgba(123, 44, 191, 0.14);
+    --chart-card: 255 255 255;
+    --chart-foreground: 26 16 40;
+    --chart-muted: 92 79 110;
+    --shadow-card: 0 4px 24px rgba(26, 16, 40, 0.08);
+    --grid-line: rgba(123, 44, 191, 0.1);
+    --gradient-brand: linear-gradient(135deg, #6b21a8 0%, #7b2cbf 50%, #9333ea 100%);
+    --text-gradient: linear-gradient(to right, #6b21a8, #7b2cbf, #9333ea);
+  }
+
+  .dark {
+    --background: 0 0 0;
+    --foreground: 255 255 255;
+    --primary: 10 10 15;
+    --secondary: 26 10 46;
+    --muted: 155 143 176;
+    --accent: 157 78 221;
+    --accent-pink: 224 64 251;
+    --accent-light: 224 170 255;
+    --accent-dark: 123 44 191;
+    --success: 74 222 128;
+    --border: 157 78 221;
+    --chart-grid: rgba(157, 78, 221, 0.06);
+    --chart-card: 10 10 15;
+    --chart-foreground: 255 255 255;
+    --chart-muted: 155 143 176;
+    --shadow-card: 0 4px 24px rgba(0, 0, 0, 0.6);
+    --grid-line: rgba(157, 78, 221, 0.04);
+    --gradient-brand: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 50%, #e040fb 100%);
+    --text-gradient: linear-gradient(to right, #e0aaff, #9d4edd, #e040fb);
+  }
+
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased font-sans tracking-wide;
+    font-feature-settings: "kern" 1;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-sans text-foreground;
+    letter-spacing: 0.08em;
+  }
+
+  button,
+  input,
+  textarea,
+  select,
+  label {
+    @apply font-sans;
+    letter-spacing: 0.05em;
+  }
+
+  ::selection {
+    @apply bg-accent/30 text-foreground;
+  }
+}
+
+@layer utilities {
+  .text-gradient {
+    background-image: var(--text-gradient);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+  }
+
+  .bg-gradient-brand {
+    background-image: var(--gradient-brand);
+  }
+
+  .glass {
+    @apply bg-primary/70 backdrop-blur-xl border border-border;
+  }
+
+  .grid-bg {
+    background-image: linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size: 60px 60px;
+  }
+
+  .font-display {
+    font-family: Orbitron, system-ui, sans-serif;
+    letter-spacing: 0.08em;
+  }
+}
+
+.recharts-cartesian-axis-tick-value,
+.recharts-legend-item-text,
+.recharts-tooltip-wrapper {
+  font-family: Orbitron, system-ui, sans-serif !important;
+  letter-spacing: 0.04em;
+}
+
+@keyframes accordion-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+
+@keyframes accordion-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+
+.animate-accordion-down {
+  animation: accordion-down 0.2s ease-out;
+}
+
+.animate-accordion-up {
+  animation: accordion-up 0.2s ease-out;
+}

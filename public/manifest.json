@@ -1,0 +1,17 @@
+{
+  "name": "PrysmAlgo Intelligence",
+  "short_name": "PrysmAlgo",
+  "description": "Investor Intelligence Platform",
+  "start_url": "/terminal",
+  "display": "standalone",
+  "background_color": "#0a0a0f",
+  "theme_color": "#a855f7",
+  "icons": [
+    {
+      "src": "/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}
