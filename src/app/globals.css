@@ -25,6 +25,11 @@
     --grid-line: rgba(123, 44, 191, 0.1);
     --gradient-brand: linear-gradient(135deg, #6b21a8 0%, #7b2cbf 50%, #9333ea 100%);
     --text-gradient: linear-gradient(to right, #6b21a8, #7b2cbf, #9333ea);
+    /* Ambient intelligence palette (deep navy / graphite / cyan / subtle gold) */
+    --ambient-navy: 30 41 99;
+    --ambient-graphite: 226 222 235;
+    --ambient-cyan: 14 165 165;
+    --ambient-gold: 202 138 4;
   }
 
   .dark {
@@ -47,6 +52,11 @@
     --grid-line: rgba(157, 78, 221, 0.04);
     --gradient-brand: linear-gradient(135deg, #7b2cbf 0%, #9d4edd 50%, #e040fb 100%);
     --text-gradient: linear-gradient(to right, #e0aaff, #9d4edd, #e040fb);
+    /* Ambient intelligence palette — dark institutional */
+    --ambient-navy: 23 33 84;
+    --ambient-graphite: 24 24 33;
+    --ambient-cyan: 34 211 211;
+    --ambient-gold: 234 179 8;
   }
 
   * {
@@ -111,6 +121,78 @@
   .font-display {
     font-family: Orbitron, system-ui, sans-serif;
     letter-spacing: 0.08em;
+  }
+
+  /* GPU compositing hint for ambient / canvas layers */
+  .gpu {
+    transform: translateZ(0);
+    will-change: transform, opacity;
+    backface-visibility: hidden;
+  }
+
+  /* Shimmer surface used by skeleton loaders */
+  .shimmer-surface {
+    position: relative;
+    overflow: hidden;
+  }
+  .shimmer-surface::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    transform: translateX(-100%);
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgb(var(--accent-light) / 0.12) 50%,
+      transparent 100%
+    );
+    animation: skeleton-shimmer 1.8s ease-in-out infinite;
+  }
+
+  /* Premium button sheen — sweeps once on hover */
+  .sheen {
+    position: relative;
+    overflow: hidden;
+    isolation: isolate;
+  }
+  .sheen::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    width: 40%;
+    transform: translateX(-130%) skewX(-12deg);
+    background: linear-gradient(
+      90deg,
+      transparent,
+      rgb(255 255 255 / 0.18),
+      transparent
+    );
+    opacity: 0;
+    pointer-events: none;
+    z-index: 1;
+  }
+  .sheen:hover::before {
+    animation: sheen 1.1s ease-out;
+  }
+}
+
+@keyframes skeleton-shimmer {
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+/* Respect users who prefer reduced motion — disable all non-essential motion. */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
   }
 }
 

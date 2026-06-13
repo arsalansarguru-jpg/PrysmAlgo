@@ -6,17 +6,21 @@ import { ArrowRight, Calendar, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { MiniSparkline } from "@/components/charts/mini-sparkline";
 import { headlineMetrics } from "@/data/performance";
+import { AmbientGradient } from "@/components/motion/ambient-gradient";
+import { CapitalNetworkCoreLazy } from "@/components/motion/capital-network-core-lazy";
 
 const sparkData = [100, 102, 101, 105, 108, 107, 112, 115, 114, 118, 120, 124];
 
 export function HeroSection() {
   return (
     <section className="relative min-h-screen flex items-center overflow-hidden pt-20">
-      <div className="absolute inset-0 grid-bg opacity-50" />
-      <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-accent-dark/20 rounded-full blur-3xl" />
-      <div className="absolute bottom-1/4 right-1/4 w-96 h-96 bg-accent-pink/10 rounded-full blur-3xl" />
+      <AmbientGradient intensity="medium" />
+      {/* AI Trading Core — interactive capital network, lazy + client-only */}
+      <div className="absolute inset-0 z-0 opacity-70 [mask-image:radial-gradient(75%_75%_at_62%_45%,black,transparent)]">
+        <CapitalNetworkCoreLazy className="h-full w-full" />
+      </div>
 
-      <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
+      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
           <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 mb-6">

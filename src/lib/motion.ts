@@ -16,3 +16,5 @@ export const REVEAL_VIEWPORT = {
 export function revealDelay(index: number, step = 0.08, max = 0.32) {
   return Math.min(index * step, max);
 }
+
+export * from "./motion-tokens";

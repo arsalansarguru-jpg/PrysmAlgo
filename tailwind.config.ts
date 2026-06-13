@@ -21,6 +21,10 @@ const config: Config = {
         foreground: "rgb(var(--foreground) / <alpha-value>)",
         muted: "rgb(var(--muted) / <alpha-value>)",
         border: "rgb(var(--border) / 0.18)",
+        "ambient-navy": "rgb(var(--ambient-navy) / <alpha-value>)",
+        "ambient-cyan": "rgb(var(--ambient-cyan) / <alpha-value>)",
+        "ambient-gold": "rgb(var(--ambient-gold) / <alpha-value>)",
+        "ambient-graphite": "rgb(var(--ambient-graphite) / <alpha-value>)",
       },
       fontFamily: {
         sans: ["Orbitron", "system-ui", "-apple-system", "sans-serif"],
@@ -42,11 +46,29 @@ const config: Config = {
       animation: {
         "pulse-slow": "pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite",
         shimmer: "shimmer 2s linear infinite",
+        "ambient-drift": "ambient-drift 24s ease-in-out infinite",
+        "ambient-drift-slow": "ambient-drift 36s ease-in-out infinite",
+        "float-y": "float-y 7s ease-in-out infinite",
+        sheen: "sheen 1.1s ease-out",
       },
       keyframes: {
         shimmer: {
           "0%": { backgroundPosition: "-200% 0" },
           "100%": { backgroundPosition: "200% 0" },
+        },
+        "ambient-drift": {
+          "0%, 100%": { transform: "translate3d(0, 0, 0) scale(1)" },
+          "33%": { transform: "translate3d(3%, -2%, 0) scale(1.06)" },
+          "66%": { transform: "translate3d(-2%, 2%, 0) scale(0.97)" },
+        },
+        "float-y": {
+          "0%, 100%": { transform: "translateY(0)" },
+          "50%": { transform: "translateY(-8px)" },
+        },
+        sheen: {
+          "0%": { transform: "translateX(-120%) skewX(-12deg)", opacity: "0" },
+          "40%": { opacity: "0.35" },
+          "100%": { transform: "translateX(220%) skewX(-12deg)", opacity: "0" },
         },
       },
       boxShadow: {
