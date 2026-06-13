@@ -4,11 +4,11 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { motion, AnimatePresence } from "framer-motion";
-import { Menu, X, Calendar, MessageCircle } from "lucide-react";
+import { Menu, X, Calendar } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Logo } from "@/components/shared/logo";
 import { ThemeToggle } from "@/components/shared/theme-toggle";
-import { NAV_LINKS, SITE_CONFIG } from "@/lib/constants";
+import { NAV_LINKS } from "@/lib/constants";
 import { cn } from "@/lib/utils";
 
 export function Navbar() {
@@ -38,13 +38,13 @@ export function Navbar() {
       <nav className="mx-auto flex h-20 max-w-7xl items-center justify-between px-4 sm:px-6 lg:px-8">
         <Logo variant="compact" />
 
-        <div className="hidden lg:flex items-center gap-1">
+        <div className="hidden lg:flex items-center gap-0.5">
           {NAV_LINKS.map((link) => (
             <Link
               key={link.href}
               href={link.href}
               className={cn(
-                "px-4 py-2 text-xs font-medium uppercase tracking-brand transition-colors rounded-md",
+                "inline-flex min-h-[44px] items-center px-3 py-2 text-xs font-medium uppercase tracking-brand transition-colors rounded-md",
                 pathname === link.href
                   ? "text-accent"
                   : "text-muted hover:text-foreground"
@@ -57,17 +57,11 @@ export function Navbar() {
 
         <div className="hidden lg:flex items-center gap-3">
           <ThemeToggle />
-          <Button asChild variant="outline" size="sm">
-            <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer">
+          <Button asChild variant="outline" size="sm" className="whitespace-nowrap">
+            <Link href="/book-call">
               <Calendar className="h-4 w-4" />
               Book Call
-            </a>
-          </Button>
-          <Button asChild variant="whatsapp" size="sm">
-            <a href={SITE_CONFIG.whatsapp} target="_blank" rel="noopener noreferrer">
-              <MessageCircle className="h-4 w-4" />
-              WhatsApp
-            </a>
+            </Link>
           </Button>
         </div>
 
@@ -108,16 +102,10 @@ export function Navbar() {
                   <ThemeToggle showLabel />
                 </div>
                 <Button asChild variant="outline">
-                  <a href={SITE_CONFIG.calendly} target="_blank" rel="noopener noreferrer">
+                  <Link href="/book-call">
                     <Calendar className="h-4 w-4" />
                     Book Call
-                  </a>
-                </Button>
-                <Button asChild variant="whatsapp">
-                  <a href={SITE_CONFIG.whatsapp} target="_blank" rel="noopener noreferrer">
-                    <MessageCircle className="h-4 w-4" />
-                    WhatsApp
-                  </a>
+                  </Link>
                 </Button>
               </div>
             </div>

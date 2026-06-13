@@ -17,9 +17,9 @@ const FALLBACK: PerformanceSnapshot = {
   drawdownSeries: drawdownSeries,
 };
 
-export function usePerformance() {
-  const [data, setData] = useState<PerformanceSnapshot>(FALLBACK);
-  const [loading, setLoading] = useState(true);
+export function usePerformance(initialData?: PerformanceSnapshot) {
+  const [data, setData] = useState<PerformanceSnapshot>(initialData ?? FALLBACK);
+  const [loading, setLoading] = useState(!initialData);
 
   useEffect(() => {
     fetch("/api/performance")

@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { SectionHeader } from "@/components/shared/section-header";
 import { howItWorks } from "@/data/content";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 export function HowItWorks() {
   return (
@@ -23,8 +24,8 @@ export function HowItWorks() {
                 key={step.step}
                 initial={{ opacity: 0, x: -30 }}
                 whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.15 }}
+                viewport={REVEAL_VIEWPORT}
+                transition={{ delay: revealDelay(index) }}
                 className="relative md:flex items-start gap-8 md:pb-12 last:pb-0"
               >
                 <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-2xl bg-accent/10 border border-accent/30 text-accent font-bold text-xl z-10">

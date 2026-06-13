@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import { Shield, Lock, BarChart3, Zap, Eye } from "lucide-react";
 import { trustItems } from "@/data/content";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 const icons = [Shield, Lock, BarChart3, Zap, Eye];
 
@@ -18,8 +19,8 @@ export function TrustBar() {
                 key={item}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={REVEAL_VIEWPORT}
+                transition={{ delay: revealDelay(index) }}
                 className="flex items-center gap-3"
               >
                 <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-accent/10 border border-accent/20">

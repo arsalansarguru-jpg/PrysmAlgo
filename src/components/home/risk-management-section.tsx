@@ -7,6 +7,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/section-header";
 import { riskCards } from "@/data/content";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 export function RiskManagementSection() {
   return (
@@ -24,8 +25,8 @@ export function RiskManagementSection() {
               key={card.title}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.08 }}
+              viewport={REVEAL_VIEWPORT}
+              transition={{ delay: revealDelay(index) }}
             >
               <Card className="h-full hover:border-accent/30 transition-colors">
                 <CardContent className="p-6">
@@ -44,7 +45,7 @@ export function RiskManagementSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={REVEAL_VIEWPORT}
           className="rounded-2xl border border-border bg-primary/50 p-8 lg:p-12"
         >
           <div className="grid lg:grid-cols-2 gap-12 items-center">
@@ -78,8 +79,8 @@ export function RiskManagementSection() {
                     key={tier.tier}
                     initial={{ opacity: 0, x: 20 }}
                     whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true }}
-                    transition={{ delay: index * 0.1 }}
+                    viewport={REVEAL_VIEWPORT}
+                    transition={{ delay: revealDelay(index) }}
                     className="flex items-center gap-4 rounded-lg border border-border bg-background/50 p-4"
                     style={{ marginLeft: `${index * 12}px` }}
                   >

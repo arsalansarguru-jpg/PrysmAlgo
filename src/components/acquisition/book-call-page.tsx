@@ -9,8 +9,14 @@ import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { SITE_CONFIG } from "@/lib/constants";
 import { trackEvent } from "@/lib/analytics/events";
+import { CalendlyEmbed } from "@/components/shared/calendly-embed";
 
 const CALENDLY_URL = process.env.NEXT_PUBLIC_CALENDLY_URL || SITE_CONFIG.calendly;
+
+/** IANA timezones report "Asia/Calcutta" on some runtimes — normalize to the current name. */
+const TZ_ALIASES: Record<string, string> = {
+  "Asia/Calcutta": "Asia/Kolkata",
+};
 
 export function BookCallPage() {
   const [timezone, setTimezone] = useState("");
@@ -18,7 +24,8 @@ export function BookCallPage() {
   const [form, setForm] = useState({ name: "", email: "", phone: "" });
 
   useEffect(() => {
-    setTimezone(Intl.DateTimeFormat().resolvedOptions().timeZone);
+    const resolved = Intl.DateTimeFormat().resolvedOptions().timeZone;
+    setTimezone(TZ_ALIASES[resolved] ?? resolved);
     trackEvent("calendly_click", { event_category: "book-call", event_label: "page_view" });
   }, []);
 
@@ -52,7 +59,7 @@ export function BookCallPage() {
     <div className="pt-28 pb-24">
       <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
         <Breadcrumbs items={[{ name: "Book Call", path: "/book-call" }]} />
-        <h1 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-4">Book Investor Strategy Call</h1>
+        <h1 className="font-display text-3xl lg:text-4xl font-bold text-foreground mb-4">Investor Strategy Consultation</h1>
         <p className="text-lg text-muted max-w-2xl mb-8">
           Schedule a confidential consultation with our investor relations team. For qualified investors in India, UAE, UK, Singapore, Canada, and Australia.
         </p>
@@ -85,11 +92,7 @@ export function BookCallPage() {
           </div>
 
           <div className="lg:col-span-2 rounded-xl border border-border overflow-hidden min-h-[600px]">
-            <iframe
-              src={`${CALENDLY_URL}?hide_gdpr_banner=1&background_color=0a0a0f&text_color=e5e5e5&primary_color=a855f7`}
-              title="Schedule a call with PrysmAlgo"
-              className="w-full h-[600px] border-0"
-            />
+            <CalendlyEmbed url={CALENDLY_URL} />
           </div>
         </div>
       </div>

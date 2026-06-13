@@ -200,7 +200,7 @@ export function ApplyPage() {
                     </div>
                     <div className="space-y-2">
                       <Label htmlFor="phone">Phone Number</Label>
-                      <Input id="phone" value={form.phone} onChange={(e) => update("phone", e.target.value)} placeholder="+91 98205 42978" />
+                      <Input id="phone" value={form.phone} onChange={(e) => update("phone", e.target.value)} placeholder="Phone number with country code" />
                       {errors.phone && <p className="text-xs text-red-400">{errors.phone}</p>}
                     </div>
                     <div className="space-y-2">

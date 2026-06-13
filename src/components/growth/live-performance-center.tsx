@@ -6,10 +6,10 @@ import { TrendingUp, BarChart3, Shield, FileText, Download, ArrowRight } from "l
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { SectionHeader } from "@/components/shared/section-header";
-import { AnimatedCounter } from "@/components/shared/animated-counter";
 import { EquityCurveChart, MonthlyReturnsChart } from "@/components/charts/lazy-charts";
 import { livePerformanceMetrics, monthlyReports, performanceHistory, riskMetricsLive } from "@/data/live-performance";
 import { usePerformance } from "@/hooks/use-performance";
+import type { PerformanceSnapshot } from "@/types/production";
 
 const metricCards = [
   { key: "annualReturn", label: "Annual Return", suffix: "%", positive: true },
@@ -22,8 +22,8 @@ const metricCards = [
   { key: "avgTradeDurationHours", label: "Avg Trade Duration", suffix: "h", positive: false },
 ] as const;
 
-export function LivePerformanceCenter() {
-  const { data: perf, isLive } = usePerformance();
+export function LivePerformanceCenter({ initialData }: { initialData?: PerformanceSnapshot }) {
+  const { data: perf, isLive } = usePerformance(initialData);
   const m = perf.metrics;
   const equityCurveSeries = perf.equityCurve;
   const monthlyReturnsSeries = perf.monthlyReturns;
@@ -44,14 +44,15 @@ export function LivePerformanceCenter() {
             const value = (card.key === "avgTradeDurationHours"
               ? livePerformanceMetrics.avgTradeDurationHours
               : m[card.key as keyof typeof m]) as number;
+            const sign = card.key === "maxDrawdown" ? "-" : card.key === "profitFactor" || card.key === "sharpeRatio" ? "" : "+";
+            const formatted = Math.abs(value).toFixed(card.suffix === "" ? 2 : 1);
             return (
               <motion.div key={card.key} initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.04 }}>
                 <Card className="h-full hover:border-accent/30 transition-colors">
                   <CardContent className="p-4">
                     <p className="text-[10px] text-muted uppercase tracking-wider mb-1">{card.label}</p>
                     <p className={`text-xl font-bold ${card.positive ? "text-success" : "text-foreground"}`}>
-                      {card.key === "maxDrawdown" ? "-" : card.key === "profitFactor" || card.key === "sharpeRatio" ? "" : "+"}
-                      <AnimatedCounter value={Math.abs(value)} decimals={card.suffix === "" ? 2 : 1} suffix={card.suffix} />
+                      {sign}{formatted}{card.suffix}
                     </p>
                   </CardContent>
                 </Card>

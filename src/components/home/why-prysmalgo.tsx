@@ -12,6 +12,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/shared/section-header";
 import { features } from "@/data/content";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 const iconMap: Record<string, React.ElementType> = {
   Brain,
@@ -40,8 +41,8 @@ export function WhyPrysmAlgo() {
                 key={feature.title}
                 initial={{ opacity: 0, y: 30 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={REVEAL_VIEWPORT}
+                transition={{ delay: revealDelay(index) }}
                 whileHover={{ y: -4 }}
               >
                 <Card className="h-full group hover:border-accent/40 hover:shadow-glow-sm transition-all duration-300">

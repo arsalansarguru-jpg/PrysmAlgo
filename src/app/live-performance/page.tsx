@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { createMetadata } from "@/lib/seo/metadata";
 import { LivePerformanceCenter } from "@/components/growth/live-performance-center";
+import { getLivePerformance } from "@/lib/performance/service";
 
 export const metadata: Metadata = createMetadata({
   title: "Live Performance Center | Institutional Trading Metrics",
@@ -9,6 +10,11 @@ export const metadata: Metadata = createMetadata({
   keywords: ["live trading performance", "algorithmic trading returns", "institutional performance dashboard"],
 });
 
-export default function LivePerformancePage() {
-  return <LivePerformanceCenter />;
+// Incrementally regenerate every 5 minutes so the page is pre-rendered with
+// the latest verified metrics — never a flash of zeros on first load.
+export const revalidate = 300;
+
+export default async function LivePerformancePage() {
+  const initialData = await getLivePerformance();
+  return <LivePerformanceCenter initialData={initialData} />;
 }

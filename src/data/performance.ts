@@ -4,6 +4,26 @@ const prysmBlue = PRYSM_STRATEGIES.find((s) => s.id === "blue")!;
 const prysmGold = PRYSM_STRATEGIES.find((s) => s.id === "gold")!;
 const prysmGreen = PRYSM_STRATEGIES.find((s) => s.id === "green")!;
 
+/**
+ * Single source of truth for Prysm Blue headline metrics. Every surface
+ * (homepage hero, institutional metrics block, live performance fallback)
+ * must read from here so figures never contradict across pages.
+ */
+export const PRYSM_BLUE_SHARPE = 1.84;
+
+export const headlineMetrics = {
+  sharpeRatio: PRYSM_BLUE_SHARPE,
+  winRate: prysmBlue.winRate,
+  maxDrawdown: prysmBlue.maxDrawdown,
+  totalReturn: prysmBlue.totalReturn,
+  monthlyReturn: prysmBlue.monthlyAvg,
+  profitFactor: prysmBlue.profitFactor,
+};
+
+/** Data provenance label shown alongside every metric block. */
+export const PERFORMANCE_SOURCE_LABEL =
+  "Prysm Blue · institutional tear sheet (Nov 2025)";
+
 /** Prysm Blue — all figures from institutional tear sheet (Nov 2025) */
 export const performanceOverview = {
   totalReturn: prysmBlue.totalReturn,

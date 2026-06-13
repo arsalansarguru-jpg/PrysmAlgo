@@ -89,7 +89,7 @@ export const blueEngineComponents = [
   {
     title: "Risk Layer",
     description: "Real-time position sizing and exposure management",
-    metric: "<2% max risk/trade",
+    metric: "1.5% max risk/trade",
   },
   {
     title: "Market Scanner",
@@ -233,7 +233,7 @@ export const faqs: FAQ[] = [
   {
     question: "What is the expected drawdown?",
     answer:
-      "Historical maximum drawdown has been -6.8% with our standard risk parameters. We implement automatic risk reduction protocols at -5% and strategy pause at -8% drawdown. Past performance does not guarantee future results.",
+      "Historical maximum drawdown has been -7.7% with our standard risk parameters. We implement automatic risk reduction protocols at -5% and strategy pause at -8% drawdown. Past performance does not guarantee future results.",
   },
   {
     question: "How often do I receive reports?",

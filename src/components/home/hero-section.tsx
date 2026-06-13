@@ -4,8 +4,8 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, TrendingUp } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { AnimatedCounter } from "@/components/shared/animated-counter";
 import { MiniSparkline } from "@/components/charts/mini-sparkline";
+import { headlineMetrics } from "@/data/performance";
 
 const sparkData = [100, 102, 101, 105, 108, 107, 112, 115, 114, 118, 120, 124];
 
@@ -18,11 +18,7 @@ export function HeroSection() {
 
       <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-20 lg:py-32">
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-16 items-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
-          >
+          <div>
             <div className="inline-flex items-center gap-2 rounded-full border border-accent/20 bg-accent/5 px-4 py-1.5 mb-6">
               <span className="h-2 w-2 rounded-full bg-success animate-pulse" />
               <span className="text-xs font-medium text-accent uppercase tracking-wider">
@@ -60,21 +56,14 @@ export function HeroSection() {
                 </Link>
               </Button>
             </div>
-          </motion.div>
+          </div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 40 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.8, delay: 0.3, ease: [0.22, 1, 0.36, 1] }}
-            className="relative"
-          >
+          <div className="relative">
             <div className="rounded-2xl border border-accent/20 bg-primary/80 backdrop-blur-xl p-6 shadow-glow">
               <div className="flex items-center justify-between mb-6">
                 <div>
                   <p className="text-xs text-muted uppercase tracking-wider">Portfolio Value</p>
-                  <p className="text-2xl font-bold text-foreground">
-                    $<AnimatedCounter value={1.184} decimals={3} />M
-                  </p>
+                  <p className="text-2xl font-bold text-foreground">$1.184M</p>
                 </div>
                 <div className="text-right">
                   <p className="text-xs text-muted">YTD Return</p>
@@ -88,9 +77,9 @@ export function HeroSection() {
 
               <div className="grid grid-cols-3 gap-4">
                 {[
-                  { label: "Sharpe Ratio", value: "1.84" },
-                  { label: "Max Drawdown", value: "-6.8%" },
-                  { label: "Win Rate", value: "64.2%" },
+                  { label: "Sharpe Ratio", value: headlineMetrics.sharpeRatio.toFixed(2) },
+                  { label: "Max Drawdown", value: `${headlineMetrics.maxDrawdown.toFixed(1)}%` },
+                  { label: "Win Rate", value: `${headlineMetrics.winRate.toFixed(1)}%` },
                 ].map((metric) => (
                   <div key={metric.label} className="rounded-lg bg-background/50 p-3 border border-border">
                     <p className="text-[10px] text-muted uppercase tracking-wider">{metric.label}</p>
@@ -122,7 +111,7 @@ export function HeroSection() {
               <p className="text-[10px] text-muted">Active Positions</p>
               <p className="text-lg font-bold text-accent">8</p>
             </motion.div>
-          </motion.div>
+          </div>
         </div>
       </div>
     </section>

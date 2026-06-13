@@ -5,6 +5,7 @@ import { Cpu, Shield, Search, Zap, PieChart } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/shared/section-header";
 import { blueEngineComponents } from "@/data/content";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 const icons = [Cpu, Shield, Search, Zap, PieChart];
 
@@ -28,8 +29,8 @@ export function BlueEngine() {
                 key={component.title}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.1 }}
+                viewport={REVEAL_VIEWPORT}
+                transition={{ delay: revealDelay(index) }}
               >
                 <Card className="h-full hover:border-accent/40 transition-all group">
                   <CardContent className="p-6 text-center">
@@ -55,7 +56,7 @@ export function BlueEngine() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={REVEAL_VIEWPORT}
           className="rounded-2xl border border-border bg-primary/80 backdrop-blur-xl p-8"
         >
           <div className="grid md:grid-cols-3 gap-8">

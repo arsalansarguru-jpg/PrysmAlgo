@@ -7,6 +7,7 @@ import { SectionHeader } from "@/components/shared/section-header";
 import { StrategyCard } from "@/components/shared/strategy-card";
 import { Button } from "@/components/ui/button";
 import { PRYSM_STRATEGIES } from "@/data/strategies";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 export function PrysmStrategies() {
   return (
@@ -25,8 +26,8 @@ export function PrysmStrategies() {
               className="h-full min-w-0"
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.12 }}
+              viewport={REVEAL_VIEWPORT}
+              transition={{ delay: revealDelay(index) }}
             >
               <StrategyCard strategy={strategy} featured={strategy.id === "green"} />
             </motion.div>

@@ -13,14 +13,14 @@ export function CookieConsent() {
     }
   }, []);
 
-  const accept = async (marketing: boolean) => {
+  const accept = (marketing: boolean) => {
     localStorage.setItem("prysm-cookie-consent", marketing ? "all" : "essential");
-    await fetch("/api/consent", {
+    setVisible(false);
+    void fetch("/api/consent", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ consent_type: marketing ? "cookies_all" : "cookies_essential", granted: true }),
-    });
-    setVisible(false);
+    }).catch(() => null);
   };
 
   if (!visible) return null;

@@ -6,7 +6,8 @@ import { Card, CardContent } from "@/components/ui/card";
 import { SectionHeader } from "@/components/shared/section-header";
 import { AnimatedCounter } from "@/components/shared/animated-counter";
 import { EquityCurveChart } from "@/components/charts/lazy-charts";
-import { performanceOverview, equityCurveData } from "@/data/performance";
+import { performanceOverview, equityCurveData, PERFORMANCE_SOURCE_LABEL } from "@/data/performance";
+import { REVEAL_VIEWPORT, revealDelay } from "@/lib/motion";
 
 const metrics = [
   { key: "totalReturn", label: "Total Return", icon: TrendingUp, suffix: "%", positive: true },
@@ -36,15 +37,15 @@ export function PerformanceOverview() {
                 key={metric.key}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ delay: index * 0.08 }}
+                viewport={REVEAL_VIEWPORT}
+                transition={{ delay: revealDelay(index) }}
               >
                 <Card className="h-full hover:border-accent/30 transition-colors">
                   <CardContent className="p-5">
                     <Icon className="h-5 w-5 text-accent mb-3" />
                     <p className="text-xs text-muted uppercase tracking-wider">{metric.label}</p>
                     <p className={`text-2xl font-bold mt-1 ${metric.positive ? "text-success" : "text-foreground"}`}>
-                      {metric.key === "maxDrawdown" ? "" : metric.key === "riskRewardRatio" || metric.key === "profitFactor" ? "" : "+"}
+                      {metric.key === "maxDrawdown" ? "-" : metric.key === "riskRewardRatio" || metric.key === "profitFactor" ? "" : "+"}
                       <AnimatedCounter
                         value={Math.abs(value)}
                         decimals={metric.key === "riskRewardRatio" || metric.key === "profitFactor" ? 2 : 1}
@@ -61,7 +62,7 @@ export function PerformanceOverview() {
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
+          viewport={REVEAL_VIEWPORT}
         >
           <Card className="p-6">
             <div className="flex items-center justify-between mb-6">
@@ -81,6 +82,10 @@ export function PerformanceOverview() {
             <EquityCurveChart data={equityCurveData} height={350} />
           </Card>
         </motion.div>
+
+        <p className="mt-6 text-center text-xs text-muted/70">
+          Source: {PERFORMANCE_SOURCE_LABEL}. Past performance is not indicative of future results.
+        </p>
       </div>
     </section>
   );
